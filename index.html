@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vigenere-Cipher</title>
+    <style type="text/css">
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+        background-color: #222;
+        color: #fff;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      }
+      .tt-upper {
+        text-transform: uppercase;
+      }
+      #results-table td {
+        overflow-wrap: anywhere;
+        padding: 14px;
+        margin: 0;
+        border-left: 0;
+        border-right: 1px solid #222;
+        border-bottom: 1px solid #222;
+      }
+
+      #results-table td.type-value,
+      #results-table td.key-value {
+        width: 80px;
+      }
+
+      #results-table td:last-child {
+        border-right: 0 none;
+      }
+      #results-table tr:last-child td {
+        border-bottom: 0 none;
+      }
+      .crypt-button {
+        background: transparent;
+        border: 2px solid #555;
+        color: #ccc;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 2px;
+        font-size: 14px;
+      }
+      #clear-results {
+        background: transparent;
+        border: 1px solid #555;
+        color: #ccc;
+        cursor: pointer;
+        border-radius: 1px;
+      }
+      #clear-results:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+      input {
+        width: 400px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="width: 1024px; margin: 0 auto">
+      <h1 style="text-align: center; margin: 30px 0 20px 0; padding: 0">
+        Vigenere-Cipher
+      </h1>
+      <div
+        style="
+          padding: 20px;
+          text-align: center;
+          justify-content: center;
+          display: flex;
+        "
+      >
+        <div style="background-color: #333; padding: 10px 20px 20px 20px">
+          <label for="cryptkey"
+            >Encryption key <br /><br /><input
+              id="cryptkey"
+              value="LION"
+              class="tt-upper"
+          /></label>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center">
+        <div style="padding: 6px">
+          <div
+            style="background-color: #333; padding: 18px; border-radius: 5px"
+          >
+            <h2 style="padding: 0; margin: 0 0 20px 0">Encrypt a message</h2>
+            <label
+              for="decrypted-text"
+              style="margin-bottom: 12px; display: inline-block"
+              >Decrypted text:<br /><input
+                id="decrypted-text"
+                placeholder="decrypted text"
+                value="thequickbrownfoxjumpsoverthelazydog"
+                class="tt-upper"
+            /></label>
+            <button id="encrypt" class="crypt-button">Encrypt</button>
+          </div>
+        </div>
+        <div style="padding: 6px">
+          <div
+            style="background-color: #333; padding: 18px; border-radius: 5px"
+          >
+            <h2 style="padding: 0; margin: 0 0 20px 0">Decrypt a message</h2>
+            <label
+              for="encrypted-text"
+              style="margin-bottom: 12px; display: inline-block"
+              >Encrypted text:<br /><input
+                value=""
+                class="tt-upper"
+                id="encrypted-text"
+            /></label>
+            <button id="decrypt" class="crypt-button">Decrypt</button>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div style="border-top: 1px solid #333">
+        <h2
+          style="
+            color: rgb(91, 174, 154);
+            font-size: 1.1rem;
+            font-weight: 400;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+              Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+              sans-serif;
+          "
+        >
+          Log (latest first) <button id="clear-results">Clear log</button>
+        </h2>
+        <div
+          style="
+            background-color: #333;
+            color: #efefef;
+            font-size: 0.8rem;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: 600;
+            letter-spacing: 3px;
+          "
+        >
+          <div id="results">
+            <table id="results-table" cellspacing="0"></table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+    <script src="index.js" type="module"></script>
+  </body>
+</html>
