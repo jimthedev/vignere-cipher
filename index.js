@@ -98,8 +98,5 @@ function getCryptFormValues() {
 }
 
 function el (...args) {
-  console.log(args);
-  const e = document.createElement.apply(document, args);
-  console.log(e);
-  return e;
+  return document.createElement.apply(document, args);
 }
